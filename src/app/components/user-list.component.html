@@ -1,0 +1,19 @@
+<div *ngIf="isLoading">Loading...</div>
+<table *ngIf="!isLoading">
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Username</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.adress }}</td>
+    <td>{{ user.phone }}</td>
+    <td>{{ user.username }}</td>
+  </tr>
+</table>
