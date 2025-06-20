@@ -5,7 +5,7 @@ export interface User {
   email: string;
   username: string;
   name: string;
-  adress: Adress;
+  address: Adress | null;
   phone: string;
   website: string;
 }
