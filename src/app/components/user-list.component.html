@@ -1,19 +1,22 @@
-<div *ngIf="isLoading">Loading...</div>
-<table *ngIf="!isLoading">
-  <tr>
-    <th>ID</th>
-    <th>Email</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th>Username</th>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.adress }}</td>
-    <td>{{ user.phone }}</td>
-    <td>{{ user.username }}</td>
-  </tr>
-</table>
+<ng-container *ngIf="users$ | async as users; else loading">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Phone</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.phone }}</td>
+      </tr>
+    </table>
+  </ng-container>
+  
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
